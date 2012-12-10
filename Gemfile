@@ -20,9 +20,18 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
 group :assets do
-  gem 'zurb-foundation', '~> 2.2'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # Add these gems
+  gem 'compass-rails'
+  gem 'zurb-foundation'
 end
+
+gem 'devise'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -36,4 +45,4 @@ end
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+ gem 'debugger'
