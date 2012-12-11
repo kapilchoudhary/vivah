@@ -12,7 +12,7 @@
 	
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<%= javascript_include_tag :defaults %>
+	
 	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
   
 	<!-- Included CSS Files -->
@@ -25,9 +25,6 @@
 </head>
 <body>
   <div class="container">
-  	<% unless current_user.blank? %>
-      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-    <% end %>
     <%= yield %>
   </div>
 </body>

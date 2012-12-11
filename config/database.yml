@@ -1,7 +1,7 @@
 development:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   database: vivah_development
   pool: 5
-  username: root
-  password:
+  username: postgres
+  password: mayank

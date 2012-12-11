@@ -4,8 +4,8 @@ gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'mysql2'
-
+gem 'pg'
+gem 'activerecord-postgres-hstore', git: 'git://github.com/engageis/activerecord-postgres-hstore.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,12 +22,7 @@ end
 gem 'jquery-rails'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # Add these gems
-  gem 'compass-rails'
-  gem 'zurb-foundation'
+ gem 'zurb-foundation', '~> 2.2'
 end
 
 gem 'devise'

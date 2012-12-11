@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+//= require "foundation/jquery.customforms"
+//= require "foundation/app"
 //= require_tree .
-//= require "foundation"
