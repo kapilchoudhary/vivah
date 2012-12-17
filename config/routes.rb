@@ -1,6 +1,11 @@
 Vivah::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_scope :users do
+    get '/user/add_profile', :to => "users#add"
+  end
+
+  match "/users/create_profile" => 'users#create_profile', :via => :post 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

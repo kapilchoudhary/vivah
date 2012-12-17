@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require "foundation/jquery.customforms"
-//= require "foundation/app"
+//= require twitter/bootstrap
 //= require_tree .

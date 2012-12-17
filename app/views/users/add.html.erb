@@ -1,0 +1,70 @@
+<h2>Complete Profile</h2>
+
+<%= form_for @user, :url => { :action => "create_profile", :controller => :users }, :method => :post do |f| %>
+
+  <% unless @user.errors.blank? %>
+    <% @user.errors.full_messages.each do |error| %>
+      <div><%= error %></div>
+    <% end %>
+  <% end %>
+
+  <div><%= f.label :name %>
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :cast %>
+  <%= f.text_field :cast %></div>
+
+  <div><%= f.label :religion %>
+  <%= f.text_field :religion %></div>
+  
+  <div><%= f.label :age %>
+  <%= f.text_field :age %></div>
+
+  <div><%= f.label :occupation %>
+  <%= f.text_field :occupation %></div>
+
+ <div><%= f.label :organization %>
+  <%= f.text_field :organization %></div>
+
+  <div><%= f.label :income %>
+  <%= f.text_field :income %></div>
+
+  <div><%= f.label :horoscope %>
+  <%= f.text_field :horoscope %></div>
+
+  <div><%= f.label :weight %>
+  <%= f.text_field :weight %></div>
+
+  <div><%= f.label :marrital_status %>
+  <%= f.text_field :marrital_status %></div>
+
+  <div><%= f.label :family %>
+  <%= f.text_field :family %></div>
+
+  <div><%= f.label :eating_habbit %>
+  </div>
+  <div class="btn-group" data-toggle="buttons-radio">
+  <%= radio_button_tag(:eating_habbit, "vag",:checked=> true) %>
+  <%= label_tag(:eating_vag, "Vag") %></div>
+  <div class="btn-group" data-toggle="buttons-radio">
+  <%= radio_button_tag(:eating_habbit, "non-vag") %>
+  <%= label_tag(:eating_nonvag, "non-vag") %>
+ </div>
+
+  <div><%= f.label :physical_status %>
+  <%= f.text_field :physical_status %></div>
+
+  <div><%= f.label :current_address %>
+  <%= f.text_field :current_address %></div>
+
+  <div><%= f.label :parmanent_address %>
+  <%= f.text_field :parmanent_address %></div>
+
+  <div><%= f.label :about_us %>
+  <%= f.text_area :about_us %></div>
+
+  <div><%= f.label :profile_created_by %><br />
+  <%= f.select(:profile_created_by,User::PROFILE_CREATED_BY) %>
+
+  <div><%= f.submit "save" %></div>
+<% end %>

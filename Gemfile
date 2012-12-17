@@ -6,7 +6,9 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'pg'
 gem 'activerecord-postgres-hstore', git: 'git://github.com/engageis/activerecord-postgres-hstore.git'
-
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'omniauth'
+gem 'omniauth-facebook'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -20,10 +22,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-group :assets do
- gem 'zurb-foundation', '~> 2.2'
-end
 
 gem 'devise'
 
