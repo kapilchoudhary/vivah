@@ -1,6 +1,8 @@
 <h2>Complete Profile</h2>
 
-<%= form_for @user, :url => { :action => "create_profile", :controller => :users }, :method => :post do |f| %>
+<%= form_for @user, :url => { :action => "create_profile", :controller => :users }, :method => :post,
+                    :html => { :multipart => true } do |f|  %>
+
   <!-- flash message -->
   <% if flash[:notice] %>
       <p class="notice"><%= flash[:notice] %></p>
@@ -74,10 +76,17 @@
   <div><%= f.label :about_us %>
   <%= f.text_area :about_us, :size=> "30*10", :maxlength => 140,
                   :autocomplete => :off,
-                  :class => "myclass"%></div>
+                  :class => "myclass" %></div>
 
   <div><%= f.label :profile_created_by %><br />
   <%= f.select(:profile_created_by,User::PROFILE_CREATED_BY) %>
+
+  <div><%=f.label :avatar %>
+  <%= f.file_field :avatar %></div>
+
+  <!-- to show the image -->
+  <%= image_tag @user.avatar.url(:thumb) %>
+
 
   <div><%= f.submit "save" %></div>
 <% end %>

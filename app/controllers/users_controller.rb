@@ -5,10 +5,11 @@ class UsersController < ApplicationController
   # GET /user/add.json
   def add
     @user = current_user
-
     current_user.user_info.each do | key , value|
       m = "#{key}="
-      @user.send( m, current_user.user_info[key] ) if @user.respond_to?( m )
+      unless key.to_str == "avatar" 
+        @user.send( m, current_user.user_info[key] ) if @user.respond_to?( m )
+      end
     end
 
     respond_to do |format|
@@ -17,14 +18,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def create_profile     
+  def create_profile    
     @user = current_user
     if @user.update_attributes(params[:user])
+      params[:user].delete("avatar")# deleting avtar from user
       @user.user_info = params[:user]
       @user.save!
       flash[:notice] = "You have successfully saved"
       redirect_to user_add_profile_path
     else
+      flash[:notice] = "Something went wrong"
       render :action => :add 
     end        
   end

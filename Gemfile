@@ -9,6 +9,7 @@ gem 'activerecord-postgres-hstore', git: 'git://github.com/engageis/activerecord
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

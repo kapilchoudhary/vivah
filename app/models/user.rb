@@ -18,14 +18,18 @@ class User < ActiveRecord::Base
          ["4 ft 7 ench", 148], ["4 ft 8 ench", 151], ["4 ft 9 ench", 154], ["4 ft 11 ench", 157], ["4 ft 12 ench", 160],
          ["5 ft 0 ench", 163], ["5 ft 1 ench", 166], ["5 ft 2 ench", 169], ["5 ft 3 ench", 172], ["5 ft 6 ench", 175],
          ["5 ft 7 ench", 178], ["5 ft 6 ench", 181], ["5 ft 7 ench", 184], ["5 ft 8 ench", 187], ["5 ft 9 ench", 190],
-         ["5 ft 10 ench", 193]   
+         ["5 ft 10 ench", 193], ["5 ft 11 ench", 196], ["5 ft 12 ench", 199], ["6 ft 1 ench", 201], ["6 ft 2 ench", 204],
+         ["6 ft 3 ench", 208], ["6 ft 4 ench", 211], ["6 ft 5 ench", 214]    
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
   serialize :user_info, ActiveRecord::Coders::Hstore
-
-
+  
+  #attache file and validate  
+  attr_accessible :avatar
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" } 
+  
   attr_accessor :name, :cast, :religion, :age, :occupation, :organization, :about_us,
                 :parmanent_address, :physical_status, :eating_habbit, :family, :marrital_status,:Height, 
                 :weight, :horoscope, :income, :current_address, :profile_created_by
