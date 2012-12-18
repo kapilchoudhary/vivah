@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       @user.user_info = params[:user]
       @user.save!
+      flash[:notice] = "You have successfully saved"
       redirect_to user_add_profile_path
     else
       render :action => :add 
