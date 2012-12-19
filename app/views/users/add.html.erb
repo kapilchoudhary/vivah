@@ -49,21 +49,41 @@
   <%= f.text_field :weight %></div>
 
   <div><%= f.label :marrital_status %>
-  <%= f.text_field :marrital_status %></div>
+    <div class="btn-group" data-toggle="buttons-radio">
+     <%= f.radio_button :marrital_status, "1",:checked=> true %>
+     <%= f.label :Single%>
+   </div>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+     <%= f.radio_button "marrital_status", "2" %>
+     <%= f.label 'Married'%> 
+    </div>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+     <%= f.radio_button :marrital_status, "3" %>
+     <%= f.label :Divorced %>
+    </div>
+    <div class="btn-group" data-toggle="buttons-radio">
+     <%= f.radio_button :marrital_status, "4" %>
+     <%= f.label :LiveIn %>
+    </div>
+  </div>
 
   <div><%= f.label :family %>
   <%= f.text_field :family %></div>
 
   <div><%= f.label :eating_habbit %>
-  </div>
+  
   <div class="btn-group" data-toggle="buttons-radio">
-  <%= radio_button_tag(:eating_habbit, "vag",:checked=> true) %>
-  <%= label_tag(:eating_vag, "Vag") %></div>
-  <div class="btn-group" data-toggle="buttons-radio">
-  <%= radio_button_tag(:eating_habbit, "non-vag") %>
-  <%= label_tag(:eating_nonvag, "non-vag") %>
- </div>
+   <%= f.radio_button :eating_habbit, "1", :checked=> true %>
+   <%= f.label :Veg %>
+   </div>
 
+    <div class="btn-group" data-toggle="buttons-radio">
+     <%= f.radio_button :eating_habbit, "2" %>
+     <%= f.label :nonveg %>
+    </div>
+   </div>
   <div><%= f.label :physical_status %>
   <%= f.text_field :physical_status %></div>
 
@@ -75,8 +95,7 @@
 
   <div><%= f.label :about_us %>
   <%= f.text_area :about_us, :size=> "30*10", :maxlength => 140,
-                  :autocomplete => :off,
-                  :class => "myclass" %></div>
+                  :autocomplete => :off %></div>
 
   <div><%= f.label :profile_created_by %><br />
   <%= f.select(:profile_created_by,User::PROFILE_CREATED_BY) %>

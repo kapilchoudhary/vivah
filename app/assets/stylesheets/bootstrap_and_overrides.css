@@ -1,4 +1,7 @@
-/*
+  @import "bootstrap";
+  body { padding-top: 60px; }
+  @import "bootstrap-responsive";
+  /*
   =require twitter-bootstrap-static/bootstrap
 
   Use Font Awesome icons (default)

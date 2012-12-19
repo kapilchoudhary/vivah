@@ -35,14 +35,21 @@
     <%= favicon_link_tag '/assets/favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
-    <div id="user_nav">
-    <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>. This cannot be cheese?
-        <%= link_to 'Sign out', destroy_user_session_path,:method => :delete %>
-    <% else %>
-        <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
-    <% end %>
-</div>
+    <header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+         <div id="user_nav">
+          <% if user_signed_in? %>
+              Signed in as <%= current_user.email %>. This cannot be cheese?
+              <%= link_to 'Sign out', destroy_user_session_path,:method => :delete %>
+          <% else %>
+              <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
+          <% end %>
+         </div>
+        </div>
+      </nav>
+    </header>
+    
   <!--  <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -62,8 +69,9 @@
       <!--  </div>
       </div>
     </div>-->
-    
+    <div id="main" role="main">
     <div class="container">
+        <div class="content">
         <div class="row">
           <div class="span9">
              <%= yield %>
@@ -80,13 +88,14 @@
             </div>--><!--/.well -->
          <!-- </div>--><!--/span-->
         <!--</div>--><!--/row--> 
-
+         </div>
       <footer>
         <p>&copy; Company 2012</p>
       </footer>
 
-    </div> <!-- /container -->
-
+      </div> <!-- /container -->
+    </div>
+  </div>
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
