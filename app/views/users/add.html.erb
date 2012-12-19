@@ -3,14 +3,6 @@
 <%= form_for @user, :url => { :action => "create_profile", :controller => :users }, :method => :post,
                     :html => { :multipart => true } do |f|  %>
 
-  <!-- flash message -->
-  <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:error] %>
-      <p class="error"><%= flash[:error] %></p>
-    <% end %>
-
   <!-- validation error  -->
   <% unless @user.errors.blank? %>
     <% @user.errors.full_messages.each do |error| %>
@@ -83,9 +75,24 @@
      <%= f.radio_button :eating_habbit, "2" %>
      <%= f.label :nonveg %>
     </div>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+     <%= f.radio_button :eating_habbit, "3" %>
+     <%= f.label :eggetarian %>
+    </div>
    </div>
-  <div><%= f.label :physical_status %>
-  <%= f.text_field :physical_status %></div>
+
+   <div><%= f.label :physical_change %>
+    <div class="btn-group" data-toggle="buttons-radio">
+     <%= f.radio_button :physical_status, "1", :checked=> true %>
+     <%= f.label :yes %>
+    </div>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+     <%= f.radio_button :physical_status, "2" %>
+     <%= f.label :no %>
+    </div>
+  </div>
 
   <div><%= f.label :current_address %>
   <%= f.text_field :current_address %></div>

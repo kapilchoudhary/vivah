@@ -37,12 +37,15 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :remember_me, :user_info
 
-  attr_accessible :provider, :uid, :password
+  attr_accessible :provider, :uid, :password, :password_confirmation
 
   # attr_accessible :title, :body
   attr_accessible :name, :cast, :religion, :age, :occupation, :age, :organization, :about_us, :parmanent_address, :physical_status, 
                   :eating_habbit, :family, :marrital_status, :weight, :horoscope, :income, :current_address, :profile_created_by,
                   :Height  
+  
+  
+  
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first

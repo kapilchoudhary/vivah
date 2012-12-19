@@ -5,13 +5,14 @@ class UsersController < ApplicationController
   # GET /user/add.json
   def add
     @user = current_user
-    current_user.user_info.each do | key , value|
-      m = "#{key}="
-      unless key.to_str == "avatar" 
-        @user.send( m, current_user.user_info[key] ) if @user.respond_to?( m )
+    unless current_user.user_info.blank? 
+      current_user.user_info.each do | key , value|
+        m = "#{key}="
+        unless key.to_str == "avatar" 
+          @user.send( m, current_user.user_info[key] ) if @user.respond_to?( m )
+        end
       end
     end
-
     respond_to do |format|
       format.html # add.html.erb
       format.json { render json: @user }
