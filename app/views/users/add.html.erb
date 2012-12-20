@@ -2,14 +2,16 @@
 
 <%= form_for @user, :url => { :action => "create_profile", :controller => :users }, :method => :post,
                     :html => { :multipart => true } do |f|  %>
-
+  
+  <%= render "tabs"%>
+  
   <!-- validation error  -->
   <% unless @user.errors.blank? %>
     <% @user.errors.full_messages.each do |error| %>
       <div><%= error %></div>
     <% end %>
   <% end %>
-
+  
   <div><%= f.label :name %>
   <%= f.text_field :name %></div>
 
@@ -114,5 +116,5 @@
   <%= image_tag @user.avatar.url(:thumb) %>
 
 
-  <div><%= f.submit "save" %></div>
+  <div><%= f.submit "save", :class=> "btn btn-primary" %></div>
 <% end %>

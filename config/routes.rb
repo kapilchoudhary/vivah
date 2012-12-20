@@ -2,7 +2,10 @@ Vivah::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   devise_scope :users do
-    get '/user/add_profile', :to => "users#add"
+    get '/users/add_profile', :to => "users#add"
+    get '/users/family_detail', :to => "users#family_detail"
+    get '/users/partner_detail', :to => "users#partner_detail"
+    get '/users/upload_detail', :to => "users#upload_detail"
   end
 
   match "/users/create_profile" => 'users#create_profile', :via => :post 

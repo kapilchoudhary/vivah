@@ -92,11 +92,14 @@
          </div>
          <div class="alert alert-info">
          <!-- flash message -->
-          <% if flash[:notice] %>
-          <p class="notice"><%= flash[:notice] %></p>
-          <% end %>
-          <% if flash[:error] %>
-          <p class="error"><%= flash[:error] %></p>
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, :id => "flash_#{name}" do %>
+            <%= msg %>
+            <%= content_tag :span, :style => "float: right;" do %>
+            <%= link_to_function image_tag('icons/cross.png'), 
+              :onclick => "document.getElementById('flash_#{name}').style.display='none'" %>
+            <% end %>
+           <% end %>
           <% end %>
         </div>
       <footer>
